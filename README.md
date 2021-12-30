@@ -1,24 +1,42 @@
-# monaco.vue
+# ///////// WIP /////////
+# monaco-editor.vue
+This package support only vue 3.
 
-## Project setup
-```
-yarn install
-```
+## WIP
+This package is a work in progress.  
+there may be many bugs in this package.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+If you have suggestions, please submit a pull request or an issue.
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Example
 
-### Lints and fixes files
-```
-yarn lint
-```
+```html
+<script lang="ts" setup>
+import { MonacoCodeEditor } from '../';
+import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
+import { ref } from 'vue';
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+const language = ref('css');
+const code = ref('あああ');
+</script>
+<template>
+  <MonacoCodeEditor
+    :monaco="monaco"
+    v-model="code"
+    :language="language"
+    theme="vs"
+  />
+  <textarea v-model="code"></textarea>
+</template>
+<style>
+body {
+  margin: 0;
+}
+.monaco-code-editor {
+  height: 50vh;
+}
+.code {
+  height: 50vh;
+}
+</style>
+```
