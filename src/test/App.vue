@@ -3,6 +3,12 @@ import { MonacoCodeEditor } from '../';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { ref } from 'vue';
 
+const monacoEditorMounted = (editor: monaco.editor.ICodeEditor) => {
+  window.addEventListener('resize', () => {
+    editor.layout();
+  });
+};
+
 const language = ref('css');
 const code = ref('あああ');
 </script>
@@ -11,7 +17,8 @@ const code = ref('あああ');
     :monaco="monaco"
     v-model="code"
     :language="language"
-    theme="vs"
+    theme="vs-dark"
+    @monaco-editor-mounted="monacoEditorMounted"
   />
   <textarea v-model="code"></textarea>
 </template>
