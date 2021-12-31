@@ -2,9 +2,8 @@
   "name": "monaco-editor.vue",
   "version": "0.2.0",
   "private": true,
-  "prepare": "npm run build",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name monaco-vue ./src/index.ts",
+    "build": "vue-cli-service build --target lib --name monaco-editor.vue ./src/index.ts",
     "serve": "vue-cli-service serve ./src/test/main.ts"
   },
   "dependencies": {
@@ -12,6 +11,13 @@
     "monaco-editor": "^0.30.1",
     "vue": "^3.2.26"
   },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/monaco-editor.vue.common.js",
+  "unpkg": "./dist/monaco-editor.vue.umd.min.js",
+  "jsdelivr": "./dist/monaco-editor.vue.umd.min.js",
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.16.5",
     "@babel/plugin-syntax-optional-chaining": "^7.8.3",
